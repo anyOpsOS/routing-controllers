@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "AuthorizationChecker.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../src/AuthorizationChecker.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

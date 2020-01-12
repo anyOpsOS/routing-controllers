@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "CurrentUserChecker.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../src/CurrentUserChecker.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

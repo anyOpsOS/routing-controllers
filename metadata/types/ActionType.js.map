@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ActionType.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../../../src/metadata/types/ActionType.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

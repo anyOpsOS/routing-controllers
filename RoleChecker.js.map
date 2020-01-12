@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "RoleChecker.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../src/RoleChecker.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

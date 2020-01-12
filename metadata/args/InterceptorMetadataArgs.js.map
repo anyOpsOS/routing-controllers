@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "InterceptorMetadataArgs.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../../../src/metadata/args/InterceptorMetadataArgs.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

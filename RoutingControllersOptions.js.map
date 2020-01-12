@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "RoutingControllersOptions.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../src/RoutingControllersOptions.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

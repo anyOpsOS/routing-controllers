@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Action.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../src/Action.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

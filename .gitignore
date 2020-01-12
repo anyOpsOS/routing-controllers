@@ -1,7 +1,2 @@
-build/
-node_modules/
-coverage/
-npm-debug.log
-.vscode/
+/node_modules/
 .idea/
-.nyc_output/

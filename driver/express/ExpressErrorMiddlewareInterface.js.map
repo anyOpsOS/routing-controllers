@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ExpressErrorMiddlewareInterface.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../../../src/driver/express/ExpressErrorMiddlewareInterface.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "BodyOptions.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../../../src/decorator-options/BodyOptions.ts"
+  ],
+  "names": [],
+  "mappings": ""
+}
