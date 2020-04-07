@@ -2,21 +2,13 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
-            ({__proto__: []} instanceof Array && function (d, b) {
-                d.__proto__ = b;
-            }) ||
-            function (d, b) {
-                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-            };
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
@@ -27,7 +19,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var ActionMetadata_1 = require("../../metadata/ActionMetadata");
 var BaseDriver_1 = require("../BaseDriver");
 var AccessDeniedError_1 = require("../../error/AccessDeniedError");
@@ -53,7 +45,6 @@ var ExpressDriver = /** @class */ (function (_super) {
         _this.app = _this.express;
         return _this;
     }
-
     // -------------------------------------------------------------------------
     // Public Methods
     // -------------------------------------------------------------------------
@@ -65,7 +56,8 @@ var ExpressDriver = /** @class */ (function (_super) {
             var cors = require("cors");
             if (this.cors === true) {
                 this.express.use(cors());
-            } else {
+            }
+            else {
                 this.express.use(cors(this.cors));
             }
         }
@@ -89,12 +81,13 @@ var ExpressDriver = /** @class */ (function (_super) {
                     var useResult = middleware.instance.use(request, response, next);
                     if (isPromiseLike_1.isPromiseLike(useResult)) {
                         useResult.catch(function (error) {
-                            _this.handleError(error, undefined, {request: request, response: response, next: next});
+                            _this.handleError(error, undefined, { request: request, response: response, next: next });
                             return error;
                         });
                     }
-                } catch (error) {
-                    _this.handleError(error, undefined, {request: request, response: response, next: next});
+                }
+                catch (error) {
+                    _this.handleError(error, undefined, { request: request, response: response, next: next });
                 }
             };
         }
@@ -118,7 +111,8 @@ var ExpressDriver = /** @class */ (function (_super) {
         if (actionMetadata.isBodyUsed) {
             if (actionMetadata.isJsonTyped) {
                 defaultMiddlewares.push(this.loadBodyParser().json(actionMetadata.bodyExtraOptions));
-            } else {
+            }
+            else {
                 defaultMiddlewares.push(this.loadBodyParser().text(actionMetadata.bodyExtraOptions));
             }
         }
@@ -126,29 +120,28 @@ var ExpressDriver = /** @class */ (function (_super) {
             defaultMiddlewares.push(function (request, response, next) {
                 if (!_this.authorizationChecker)
                     throw new AuthorizationCheckerNotDefinedError_1.AuthorizationCheckerNotDefinedError();
-                var action = {request: request, response: response, next: next};
+                var action = { request: request, response: response, next: next };
                 try {
                     var checkResult = _this.authorizationChecker(action, actionMetadata.authorizedRoles);
                     var handleError_1 = function (result) {
                         if (!result) {
                             var error = actionMetadata.authorizedRoles.length === 0 ? new AuthorizationRequiredError_1.AuthorizationRequiredError(action) : new AccessDeniedError_1.AccessDeniedError(action);
                             _this.handleError(error, actionMetadata, action);
-                        } else {
+                        }
+                        else {
                             next();
                         }
                     };
                     if (isPromiseLike_1.isPromiseLike(checkResult)) {
                         checkResult
-                            .then(function (result) {
-                                return handleError_1(result);
-                            })
-                            .catch(function (error) {
-                                return _this.handleError(error, actionMetadata, action);
-                            });
-                    } else {
+                            .then(function (result) { return handleError_1(result); })
+                            .catch(function (error) { return _this.handleError(error, actionMetadata, action); });
+                    }
+                    else {
                         handleError_1(checkResult);
                     }
-                } catch (error) {
+                }
+                catch (error) {
                     _this.handleError(error, actionMetadata, action);
                 }
             });
@@ -156,28 +149,20 @@ var ExpressDriver = /** @class */ (function (_super) {
         if (actionMetadata.isFileUsed || actionMetadata.isFilesUsed) {
             var multer_1 = this.loadMulter();
             actionMetadata.params
-                .filter(function (param) {
-                    return param.type === "file";
-                })
+                .filter(function (param) { return param.type === "file"; })
                 .forEach(function (param) {
-                    defaultMiddlewares.push(multer_1(param.extraOptions).single(param.name));
-                });
+                defaultMiddlewares.push(multer_1(param.extraOptions).single(param.name));
+            });
             actionMetadata.params
-                .filter(function (param) {
-                    return param.type === "files";
-                })
+                .filter(function (param) { return param.type === "files"; })
                 .forEach(function (param) {
-                    defaultMiddlewares.push(multer_1(param.extraOptions).array(param.name));
-                });
+                defaultMiddlewares.push(multer_1(param.extraOptions).array(param.name));
+            });
         }
         // user used middlewares
         var uses = __spreadArrays(actionMetadata.controllerMetadata.uses, actionMetadata.uses);
-        var beforeMiddlewares = this.prepareMiddlewares(uses.filter(function (use) {
-            return !use.afterAction;
-        }));
-        var afterMiddlewares = this.prepareMiddlewares(uses.filter(function (use) {
-            return use.afterAction;
-        }));
+        var beforeMiddlewares = this.prepareMiddlewares(uses.filter(function (use) { return !use.afterAction; }));
+        var afterMiddlewares = this.prepareMiddlewares(uses.filter(function (use) { return use.afterAction; }));
         // prepare route and route handler function
         var route = ActionMetadata_1.ActionMetadata.appendBaseRoute(this.routePrefix, actionMetadata.fullRoute);
         var routeHandler = function routeHandler(request, response, next) {
@@ -188,7 +173,7 @@ var ExpressDriver = /** @class */ (function (_super) {
             // The following line skips action processing when the request method does not match the action method.
             if (request.method.toLowerCase() !== actionMetadata.type)
                 return next();
-            return executeCallback({request: request, response: response, next: next});
+            return executeCallback({ request: request, response: response, next: next });
         };
         // finally register action in express
         (_a = this.express)[actionMetadata.type.toLowerCase()].apply(_a, __spreadArrays([
@@ -262,16 +247,19 @@ var ExpressDriver = /** @class */ (function (_super) {
                 throw new action.undefinedResultCode(options);
             }
             options.response.status(action.undefinedResultCode);
-        } else if (result === null) {
+        }
+        else if (result === null) {
             if (action.nullResultCode) {
                 if (action.nullResultCode instanceof Function) {
                     throw new action.nullResultCode(options);
                 }
                 options.response.status(action.nullResultCode);
-            } else {
+            }
+            else {
                 options.response.status(204);
             }
-        } else if (action.successHttpCode) {
+        }
+        else if (action.successHttpCode) {
             options.response.status(action.successHttpCode);
         }
         // apply http headers
@@ -281,52 +269,67 @@ var ExpressDriver = /** @class */ (function (_super) {
         if (action.redirect) { // if redirect is set then do it
             if (typeof result === "string") {
                 options.response.redirect(result);
-            } else if (result instanceof Object) {
+            }
+            else if (result instanceof Object) {
                 options.response.redirect(templateUrl(action.redirect, result));
-            } else {
+            }
+            else {
                 options.response.redirect(action.redirect);
             }
             options.next();
-        } else if (action.renderedTemplate) { // if template is set then render it
+        }
+        else if (action.renderedTemplate) { // if template is set then render it
             var renderOptions = result && result instanceof Object ? result : {};
             options.response.render(action.renderedTemplate, renderOptions, function (err, html) {
                 if (err && action.isJsonTyped) {
                     return options.next(err);
-                } else if (err && !action.isJsonTyped) {
+                }
+                else if (err && !action.isJsonTyped) {
                     return options.next(err);
-                } else if (html) {
+                }
+                else if (html) {
                     options.response.send(html);
                 }
                 options.next();
             });
-        } else if (result === undefined) { // throw NotFoundError on undefined response
+        }
+        else if (result === undefined) { // throw NotFoundError on undefined response
             if (action.undefinedResultCode) {
                 if (action.isJsonTyped) {
                     options.response.json();
-                } else {
+                }
+                else {
                     options.response.send();
                 }
                 options.next();
-            } else {
+            }
+            else {
                 throw new index_1.NotFoundError();
             }
-        } else if (result === null) { // send null response
+        }
+        else if (result === null) { // send null response
             if (action.isJsonTyped) {
                 options.response.json(null);
-            } else {
+            }
+            else {
                 options.response.send(null);
             }
             options.next();
-        } else if (result instanceof Buffer) { // check if it's binary data (Buffer)
+        }
+        else if (result instanceof Buffer) { // check if it's binary data (Buffer)
             options.response.end(result, "binary");
-        } else if (result instanceof Uint8Array) { // check if it's binary data (typed array)
+        }
+        else if (result instanceof Uint8Array) { // check if it's binary data (typed array)
             options.response.end(Buffer.from(result), "binary");
-        } else if (result.pipe instanceof Function) {
+        }
+        else if (result.pipe instanceof Function) {
             result.pipe(options.response);
-        } else { // send regular result
+        }
+        else { // send regular result
             if (action.isJsonTyped) {
                 options.response.json(result);
-            } else {
+            }
+            else {
                 options.response.send(result);
             }
             options.next();
@@ -342,7 +345,8 @@ var ExpressDriver = /** @class */ (function (_super) {
             // note that we can't use error instanceof HttpError properly anymore because of new typescript emit process
             if (error.httpCode) {
                 response_1.status(error.httpCode);
-            } else {
+            }
+            else {
                 response_1.status(500);
             }
             // apply http headers
@@ -354,7 +358,8 @@ var ExpressDriver = /** @class */ (function (_super) {
             // send error content
             if (action && action.isJsonTyped) {
                 response_1.json(this.processJsonError(error));
-            } else {
+            }
+            else {
                 response_1.send(this.processTextError(error)); // todo: no need to do it because express by default does it
             }
         }
@@ -376,20 +381,23 @@ var ExpressDriver = /** @class */ (function (_super) {
                         var useResult = container_1.getFromContainer(use.middleware).use(request, response, next);
                         if (isPromiseLike_1.isPromiseLike(useResult)) {
                             useResult.catch(function (error) {
-                                _this.handleError(error, undefined, {request: request, response: response, next: next});
+                                _this.handleError(error, undefined, { request: request, response: response, next: next });
                                 return error;
                             });
                         }
                         return useResult;
-                    } catch (error) {
-                        _this.handleError(error, undefined, {request: request, response: response, next: next});
+                    }
+                    catch (error) {
+                        _this.handleError(error, undefined, { request: request, response: response, next: next });
                     }
                 });
-            } else if (use.middleware.prototype && use.middleware.prototype.error) { // if this is function instance of ErrorMiddlewareInterface
+            }
+            else if (use.middleware.prototype && use.middleware.prototype.error) { // if this is function instance of ErrorMiddlewareInterface
                 middlewareFunctions.push(function (error, request, response, next) {
                     return container_1.getFromContainer(use.middleware).error(error, request, response, next);
                 });
-            } else {
+            }
+            else {
                 middlewareFunctions.push(use.middleware);
             }
         });
@@ -403,11 +411,13 @@ var ExpressDriver = /** @class */ (function (_super) {
             if (!this.express) {
                 try {
                     this.express = require("express")();
-                } catch (e) {
+                }
+                catch (e) {
                     throw new Error("express package was not found installed. Try to install it: npm install express --save");
                 }
             }
-        } else {
+        }
+        else {
             throw new Error("Cannot load express. Try to install all required dependencies.");
         }
     };
@@ -417,7 +427,8 @@ var ExpressDriver = /** @class */ (function (_super) {
     ExpressDriver.prototype.loadBodyParser = function () {
         try {
             return require("body-parser");
-        } catch (e) {
+        }
+        catch (e) {
             throw new Error("body-parser package was not found installed. Try to install it: npm install body-parser --save");
         }
     };
@@ -427,7 +438,8 @@ var ExpressDriver = /** @class */ (function (_super) {
     ExpressDriver.prototype.loadMulter = function () {
         try {
             return require("multer");
-        } catch (e) {
+        }
+        catch (e) {
             throw new Error("multer package was not found installed. Try to install it: npm install multer --save");
         }
     };

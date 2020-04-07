@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Registers a controller method to be executed when DELETE request comes on a given route.
  * Must be applied on a controller action.
@@ -16,6 +15,5 @@ function Delete(route) {
         });
     };
 }
-
 exports.Delete = Delete;
 //# sourceMappingURL=Delete.js.map

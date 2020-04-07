@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Specifies a given middleware to be used for controller or controller action AFTER the action executes.
  * Must be set to controller action or controller class.
@@ -22,6 +21,5 @@ function UseAfter() {
         });
     };
 }
-
 exports.UseAfter = UseAfter;
 //# sourceMappingURL=UseAfter.js.map

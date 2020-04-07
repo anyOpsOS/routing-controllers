@@ -1,5 +1,4 @@
-import {UseInterceptorMetadataArgs} from "./args/UseInterceptorMetadataArgs";
-
+import { UseInterceptorMetadataArgs } from "./args/UseInterceptorMetadataArgs";
 /**
  * "Use interceptor" metadata.
  */
@@ -24,6 +23,5 @@ export declare class InterceptorMetadata {
      * Interceptor priority. Used for global interceptors.
      */
     priority: number;
-
     constructor(args: UseInterceptorMetadataArgs);
 }

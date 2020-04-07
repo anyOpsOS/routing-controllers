@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Used to set specific HTTP status code when result returned by a controller action is equal to undefined.
  * Must be applied on a controller action.
@@ -16,6 +15,5 @@ function OnUndefined(codeOrError) {
         });
     };
 }
-
 exports.OnUndefined = OnUndefined;
 //# sourceMappingURL=OnUndefined.js.map

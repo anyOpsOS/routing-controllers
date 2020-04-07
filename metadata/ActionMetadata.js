@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Action metadata.
  */
@@ -17,7 +17,6 @@ var ActionMetadata = /** @class */ (function () {
         this.appendParams = args.appendParams;
         this.methodOverride = args.methodOverride;
     }
-
     // -------------------------------------------------------------------------
     // Public Methods
     // -------------------------------------------------------------------------
@@ -26,33 +25,15 @@ var ActionMetadata = /** @class */ (function () {
      * Action metadata can be used only after its build.
      */
     ActionMetadata.prototype.build = function (responseHandlers) {
-        var classTransformerResponseHandler = responseHandlers.find(function (handler) {
-            return handler.type === "response-class-transform-options";
-        });
-        var undefinedResultHandler = responseHandlers.find(function (handler) {
-            return handler.type === "on-undefined";
-        });
-        var nullResultHandler = responseHandlers.find(function (handler) {
-            return handler.type === "on-null";
-        });
-        var successCodeHandler = responseHandlers.find(function (handler) {
-            return handler.type === "success-code";
-        });
-        var redirectHandler = responseHandlers.find(function (handler) {
-            return handler.type === "redirect";
-        });
-        var renderedTemplateHandler = responseHandlers.find(function (handler) {
-            return handler.type === "rendered-template";
-        });
-        var authorizedHandler = responseHandlers.find(function (handler) {
-            return handler.type === "authorized";
-        });
-        var contentTypeHandler = responseHandlers.find(function (handler) {
-            return handler.type === "content-type";
-        });
-        var bodyParam = this.params.find(function (param) {
-            return param.type === "body";
-        });
+        var classTransformerResponseHandler = responseHandlers.find(function (handler) { return handler.type === "response-class-transform-options"; });
+        var undefinedResultHandler = responseHandlers.find(function (handler) { return handler.type === "on-undefined"; });
+        var nullResultHandler = responseHandlers.find(function (handler) { return handler.type === "on-null"; });
+        var successCodeHandler = responseHandlers.find(function (handler) { return handler.type === "success-code"; });
+        var redirectHandler = responseHandlers.find(function (handler) { return handler.type === "redirect"; });
+        var renderedTemplateHandler = responseHandlers.find(function (handler) { return handler.type === "rendered-template"; });
+        var authorizedHandler = responseHandlers.find(function (handler) { return handler.type === "authorized"; });
+        var contentTypeHandler = responseHandlers.find(function (handler) { return handler.type === "content-type"; });
+        var bodyParam = this.params.find(function (param) { return param.type === "body"; });
         if (classTransformerResponseHandler)
             this.responseClassTransformOptions = classTransformerResponseHandler.value;
         this.undefinedResultCode = undefinedResultHandler
@@ -68,15 +49,9 @@ var ActionMetadata = /** @class */ (function () {
         if (renderedTemplateHandler)
             this.renderedTemplate = renderedTemplateHandler.value;
         this.bodyExtraOptions = bodyParam ? bodyParam.extraOptions : undefined;
-        this.isBodyUsed = !!this.params.find(function (param) {
-            return param.type === "body" || param.type === "body-param";
-        });
-        this.isFilesUsed = !!this.params.find(function (param) {
-            return param.type === "files";
-        });
-        this.isFileUsed = !!this.params.find(function (param) {
-            return param.type === "file";
-        });
+        this.isBodyUsed = !!this.params.find(function (param) { return param.type === "body" || param.type === "body-param"; });
+        this.isFilesUsed = !!this.params.find(function (param) { return param.type === "files"; });
+        this.isFileUsed = !!this.params.find(function (param) { return param.type === "file"; });
         this.isJsonTyped = (contentTypeHandler !== undefined
             ? /json/.test(contentTypeHandler.value)
             : this.controllerMetadata.type === "json");
@@ -109,24 +84,16 @@ var ActionMetadata = /** @class */ (function () {
      * Builds action response headers.
      */
     ActionMetadata.prototype.buildHeaders = function (responseHandlers) {
-        var contentTypeHandler = responseHandlers.find(function (handler) {
-            return handler.type === "content-type";
-        });
-        var locationHandler = responseHandlers.find(function (handler) {
-            return handler.type === "location";
-        });
+        var contentTypeHandler = responseHandlers.find(function (handler) { return handler.type === "content-type"; });
+        var locationHandler = responseHandlers.find(function (handler) { return handler.type === "location"; });
         var headers = {};
         if (locationHandler)
             headers["Location"] = locationHandler.value;
         if (contentTypeHandler)
             headers["Content-type"] = contentTypeHandler.value;
-        var headerHandlers = responseHandlers.filter(function (handler) {
-            return handler.type === "header";
-        });
+        var headerHandlers = responseHandlers.filter(function (handler) { return handler.type === "header"; });
         if (headerHandlers)
-            headerHandlers.map(function (handler) {
-                return headers[handler.value] = handler.secondaryValue;
-            });
+            headerHandlers.map(function (handler) { return headers[handler.value] = handler.secondaryValue; });
         return headers;
     };
     // -------------------------------------------------------------------------

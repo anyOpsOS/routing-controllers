@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Registers a global interceptor.
  */
@@ -14,6 +13,5 @@ function Interceptor(options) {
         });
     };
 }
-
 exports.Interceptor = Interceptor;
 //# sourceMappingURL=Interceptor.js.map

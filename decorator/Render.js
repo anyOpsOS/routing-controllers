@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Specifies a template to be rendered by a controller action.
  * Must be applied on a controller action.
@@ -16,6 +15,5 @@ function Render(template) {
         });
     };
 }
-
 exports.Render = Render;
 //# sourceMappingURL=Render.js.map

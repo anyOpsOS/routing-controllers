@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * "Use interceptor" metadata.
  */
@@ -14,7 +14,6 @@ var InterceptorMetadata = /** @class */ (function () {
         this.priority = args.priority;
         this.global = args.global;
     }
-
     return InterceptorMetadata;
 }());
 exports.InterceptorMetadata = InterceptorMetadata;

@@ -11,17 +11,15 @@ export interface UseContainerOptions {
      */
     fallbackOnErrors?: boolean;
 }
-
 /**
  * Sets container to be used by this library.
  */
 export declare function useContainer(iocContainer: {
     get(someClass: any): any;
 }, options?: UseContainerOptions): void;
-
 /**
  * Gets the IOC container used by this library.
  */
 export declare function getFromContainer<T>(someClass: {
-    new(...args: any[]): T;
+    new (...args: any[]): T;
 } | Function): T;

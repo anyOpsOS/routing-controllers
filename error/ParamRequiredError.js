@@ -2,32 +2,23 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
-            ({__proto__: []} instanceof Array && function (d, b) {
-                d.__proto__ = b;
-            }) ||
-            function (d, b) {
-                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-            };
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var BadRequestError_1 = require("../http-error/BadRequestError");
 /**
  * Thrown when parameter is required, but was missing in a user request.
  */
 var ParamRequiredError = /** @class */ (function (_super) {
     __extends(ParamRequiredError, _super);
-
     function ParamRequiredError(action, param) {
         var _this = _super.call(this) || this;
         _this.name = "ParamRequiredError";
@@ -68,7 +59,6 @@ var ParamRequiredError = /** @class */ (function (_super) {
         _this.message = paramName + " required for request on " + uri;
         return _this;
     }
-
     return ParamRequiredError;
 }(BadRequestError_1.BadRequestError));
 exports.ParamRequiredError = ParamRequiredError;

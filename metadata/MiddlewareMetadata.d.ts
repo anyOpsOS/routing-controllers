@@ -1,8 +1,7 @@
-import {MiddlewareMetadataArgs} from "./args/MiddlewareMetadataArgs";
-import {ExpressMiddlewareInterface} from "../driver/express/ExpressMiddlewareInterface";
-import {ExpressErrorMiddlewareInterface} from "../driver/express/ExpressErrorMiddlewareInterface";
-import {KoaMiddlewareInterface} from "../driver/koa/KoaMiddlewareInterface";
-
+import { MiddlewareMetadataArgs } from "./args/MiddlewareMetadataArgs";
+import { ExpressMiddlewareInterface } from "../driver/express/ExpressMiddlewareInterface";
+import { ExpressErrorMiddlewareInterface } from "../driver/express/ExpressErrorMiddlewareInterface";
+import { KoaMiddlewareInterface } from "../driver/koa/KoaMiddlewareInterface";
 /**
  * Middleware metadata.
  */
@@ -23,9 +22,7 @@ export declare class MiddlewareMetadata {
      * Indicates if middleware must be executed after routing action is executed.
      */
     type: "before" | "after";
-
     constructor(args: MiddlewareMetadataArgs);
-
     /**
      * Gets middleware instance from the container.
      */

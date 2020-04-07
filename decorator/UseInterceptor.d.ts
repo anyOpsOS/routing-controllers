@@ -1,5 +1,4 @@
-import {Action} from "../Action";
-
+import { Action } from "../Action";
 /**
  * Specifies a given interceptor middleware or interceptor function to be used for controller or controller action.
  * Must be set to controller action or controller class.

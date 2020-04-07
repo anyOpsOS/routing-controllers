@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Marks controller action to have a special access.
  * Authorization logic must be defined in routing-controllers settings.
@@ -16,6 +15,5 @@ function Authorized(roleOrRoles) {
         });
     };
 }
-
 exports.Authorized = Authorized;
 //# sourceMappingURL=Authorized.js.map

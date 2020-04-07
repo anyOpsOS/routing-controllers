@@ -1,5 +1,4 @@
-import {ActionType} from "../metadata/types/ActionType";
-
+import { ActionType } from "../metadata/types/ActionType";
 /**
  * Registers an action to be executed when request with specified method comes on a given route.
  * Must be applied on a controller action.

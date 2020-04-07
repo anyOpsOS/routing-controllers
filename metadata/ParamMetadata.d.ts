@@ -1,10 +1,9 @@
-import {ValidatorOptions} from "class-validator";
-import {ActionMetadata} from "./ActionMetadata";
-import {ParamMetadataArgs} from "./args/ParamMetadataArgs";
-import {ParamType} from "./types/ParamType";
-import {ClassTransformOptions} from "class-transformer";
-import {Action} from "../Action";
-
+import { ValidatorOptions } from "class-validator";
+import { ActionMetadata } from "./ActionMetadata";
+import { ParamMetadataArgs } from "./args/ParamMetadataArgs";
+import { ParamType } from "./types/ParamType";
+import { ClassTransformOptions } from "class-transformer";
+import { Action } from "../Action";
 /**
  * Action Parameter metadata.
  */
@@ -75,6 +74,5 @@ export declare class ParamMetadata {
      * If validation options are given then it means validation will be applied (is true).
      */
     validate?: boolean | ValidatorOptions;
-
     constructor(actionMetadata: ActionMetadata, args: ParamMetadataArgs);
 }

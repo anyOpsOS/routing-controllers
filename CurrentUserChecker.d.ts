@@ -1,5 +1,4 @@
-import {Action} from "./Action";
-
+import { Action } from "./Action";
 /**
  * Special function used to get currently authorized user.
  */

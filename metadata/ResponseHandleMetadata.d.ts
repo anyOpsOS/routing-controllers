@@ -1,6 +1,5 @@
-import {ResponseHandlerMetadataArgs} from "./args/ResponseHandleMetadataArgs";
-import {ResponseHandlerType} from "./types/ResponseHandlerType";
-
+import { ResponseHandlerMetadataArgs } from "./args/ResponseHandleMetadataArgs";
+import { ResponseHandlerType } from "./types/ResponseHandlerType";
 /**
  * Response handler metadata.
  */
@@ -25,6 +24,5 @@ export declare class ResponseHandlerMetadata {
      * Secondary property value. Can be header value for example.
      */
     secondaryValue: any;
-
     constructor(args: ResponseHandlerMetadataArgs);
 }

@@ -2,32 +2,23 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
-            ({__proto__: []} instanceof Array && function (d, b) {
-                d.__proto__ = b;
-            }) ||
-            function (d, b) {
-                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-            };
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var UnauthorizedError_1 = require("../http-error/UnauthorizedError");
 /**
  * Thrown when authorization is required thought @CurrentUser decorator.
  */
 var AuthorizationRequiredError = /** @class */ (function (_super) {
     __extends(AuthorizationRequiredError, _super);
-
     function AuthorizationRequiredError(action) {
         var _this = _super.call(this) || this;
         _this.name = "AuthorizationRequiredError";
@@ -36,7 +27,6 @@ var AuthorizationRequiredError = /** @class */ (function (_super) {
         _this.message = "Authorization is required for request on " + uri;
         return _this;
     }
-
     return AuthorizationRequiredError;
 }(UnauthorizedError_1.UnauthorizedError));
 exports.AuthorizationRequiredError = AuthorizationRequiredError;

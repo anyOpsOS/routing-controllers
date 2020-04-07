@@ -1,9 +1,8 @@
-import {ActionMetadata} from "./ActionMetadata";
-import {ControllerMetadataArgs} from "./args/ControllerMetadataArgs";
-import {UseMetadata} from "./UseMetadata";
-import {ResponseHandlerMetadata} from "./ResponseHandleMetadata";
-import {InterceptorMetadata} from "./InterceptorMetadata";
-
+import { ActionMetadata } from "./ActionMetadata";
+import { ControllerMetadataArgs } from "./args/ControllerMetadataArgs";
+import { UseMetadata } from "./UseMetadata";
+import { ResponseHandlerMetadata } from "./ResponseHandleMetadata";
+import { InterceptorMetadata } from "./InterceptorMetadata";
 /**
  * Controller metadata.
  */
@@ -40,14 +39,11 @@ export declare class ControllerMetadata {
      * Roles set by @Authorized decorator.
      */
     authorizedRoles: any[];
-
     constructor(args: ControllerMetadataArgs);
-
     /**
      * Gets instance of the controller.
      */
     readonly instance: any;
-
     /**
      * Builds everything controller metadata needs.
      * Controller metadata should be used only after its build.

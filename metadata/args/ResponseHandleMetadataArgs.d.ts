@@ -1,5 +1,4 @@
-import {ResponseHandlerType} from "../types/ResponseHandlerType";
-
+import { ResponseHandlerType } from "../types/ResponseHandlerType";
 /**
  * Storages information about registered response handlers.
  */

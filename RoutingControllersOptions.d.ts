@@ -1,8 +1,7 @@
-import {AuthorizationChecker} from "./AuthorizationChecker";
-import {ClassTransformOptions} from "class-transformer";
-import {CurrentUserChecker} from "./CurrentUserChecker";
-import {ValidatorOptions} from "class-validator";
-
+import { AuthorizationChecker } from "./AuthorizationChecker";
+import { ClassTransformOptions } from "class-transformer";
+import { CurrentUserChecker } from "./CurrentUserChecker";
+import { ValidatorOptions } from "class-validator";
 /**
  * Routing controller initialization options.
  */

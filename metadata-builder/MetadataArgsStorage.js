@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Storage all metadatas read from decorators.
  */
@@ -41,7 +41,6 @@ var MetadataArgsStorage = /** @class */ (function () {
          */
         this.responseHandlers = [];
     }
-
     // -------------------------------------------------------------------------
     // Public Methods
     // -------------------------------------------------------------------------
@@ -51,23 +50,15 @@ var MetadataArgsStorage = /** @class */ (function () {
     MetadataArgsStorage.prototype.filterMiddlewareMetadatasForClasses = function (classes) {
         var _this = this;
         return classes
-            .map(function (cls) {
-                return _this.middlewares.find(function (mid) {
-                    return mid.target === cls;
-                });
-            })
-            .filter(function (midd) {
-                return midd !== undefined;
-            }); // this might be not needed if all classes where decorated with `@Middleware`
+            .map(function (cls) { return _this.middlewares.find(function (mid) { return mid.target === cls; }); })
+            .filter(function (midd) { return midd !== undefined; }); // this might be not needed if all classes where decorated with `@Middleware`
     };
     /**
      * Filters registered interceptors by a given classes.
      */
     MetadataArgsStorage.prototype.filterInterceptorMetadatasForClasses = function (classes) {
         return this.interceptors.filter(function (ctrl) {
-            return classes.filter(function (cls) {
-                return ctrl.target === cls;
-            }).length > 0;
+            return classes.filter(function (cls) { return ctrl.target === cls; }).length > 0;
         });
     };
     /**
@@ -75,18 +66,14 @@ var MetadataArgsStorage = /** @class */ (function () {
      */
     MetadataArgsStorage.prototype.filterControllerMetadatasForClasses = function (classes) {
         return this.controllers.filter(function (ctrl) {
-            return classes.filter(function (cls) {
-                return ctrl.target === cls;
-            }).length > 0;
+            return classes.filter(function (cls) { return ctrl.target === cls; }).length > 0;
         });
     };
     /**
      * Filters registered actions by a given classes.
      */
     MetadataArgsStorage.prototype.filterActionsWithTarget = function (target) {
-        return this.actions.filter(function (action) {
-            return action.target === target;
-        });
+        return this.actions.filter(function (action) { return action.target === target; });
     };
     /**
      * Filters registered "use middlewares" by a given target class and method name.

@@ -2,25 +2,17 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
-            ({__proto__: []} instanceof Array && function (d, b) {
-                d.__proto__ = b;
-            }) ||
-            function (d, b) {
-                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-            };
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Used to throw HTTP errors.
  * Just do throw new HttpError(code, message) in your controller action and
@@ -28,7 +20,6 @@ Object.defineProperty(exports, "__esModule", {value: true});
  */
 var HttpError = /** @class */ (function (_super) {
     __extends(HttpError, _super);
-
     function HttpError(httpCode, message) {
         var _this = _super.call(this) || this;
         Object.setPrototypeOf(_this, HttpError.prototype);
@@ -39,7 +30,6 @@ var HttpError = /** @class */ (function (_super) {
         _this.stack = new Error().stack;
         return _this;
     }
-
     return HttpError;
 }(Error));
 exports.HttpError = HttpError;

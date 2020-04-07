@@ -2,32 +2,23 @@
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
-            ({__proto__: []} instanceof Array && function (d, b) {
-                d.__proto__ = b;
-            }) ||
-            function (d, b) {
-                for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-            };
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
         extendStatics(d, b);
-
-        function __() {
-            this.constructor = d;
-        }
-
+        function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var ForbiddenError_1 = require("../http-error/ForbiddenError");
 /**
  * Thrown when route is guarded by @Authorized decorator.
  */
 var AccessDeniedError = /** @class */ (function (_super) {
     __extends(AccessDeniedError, _super);
-
     function AccessDeniedError(action) {
         var _this = _super.call(this) || this;
         _this.name = "AccessDeniedError";
@@ -36,7 +27,6 @@ var AccessDeniedError = /** @class */ (function (_super) {
         _this.message = "Access is denied for request on " + uri;
         return _this;
     }
-
     return AccessDeniedError;
 }(ForbiddenError_1.ForbiddenError));
 exports.AccessDeniedError = AccessDeniedError;

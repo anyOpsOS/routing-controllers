@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Defines a class as a controller.
  * Each decorated controller method is served as a controller action.
@@ -18,6 +17,5 @@ function Controller(baseRoute) {
         });
     };
 }
-
 exports.Controller = Controller;
 //# sourceMappingURL=Controller.js.map

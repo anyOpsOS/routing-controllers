@@ -1,8 +1,7 @@
-import {CustomParameterDecorator} from "./CustomParameterDecorator";
-import {BaseDriver} from "./driver/BaseDriver";
-import {MetadataArgsStorage} from "./metadata-builder/MetadataArgsStorage";
-import {RoutingControllersOptions} from "./RoutingControllersOptions";
-
+import { CustomParameterDecorator } from "./CustomParameterDecorator";
+import { BaseDriver } from "./driver/BaseDriver";
+import { MetadataArgsStorage } from "./metadata-builder/MetadataArgsStorage";
+import { RoutingControllersOptions } from "./RoutingControllersOptions";
 export * from "./container";
 export * from "./decorator/Authorized";
 export * from "./decorator/Body";
@@ -76,43 +75,35 @@ export * from "./InterceptorInterface";
 export * from "./driver/BaseDriver";
 export * from "./driver/express/ExpressDriver";
 export * from "./driver/koa/KoaDriver";
-
 /**
  * Gets metadata args storage.
  * Metadata args storage follows the best practices and stores metadata in a global variable.
  */
 export declare function getMetadataArgsStorage(): MetadataArgsStorage;
-
 /**
  * Registers all loaded actions in your express application.
  */
 export declare function useExpressServer<T>(expressApp: T, options?: RoutingControllersOptions): T;
-
 /**
  * Registers all loaded actions in your express application.
  */
 export declare function createExpressServer(options?: RoutingControllersOptions): any;
-
 /**
  * Registers all loaded actions in your koa application.
  */
 export declare function useKoaServer<T>(koaApp: T, options?: RoutingControllersOptions): T;
-
 /**
  * Registers all loaded actions in your koa application.
  */
 export declare function createKoaServer(options?: RoutingControllersOptions): any;
-
 /**
  * Registers all loaded actions in your application using selected driver.
  */
 export declare function createServer<T extends BaseDriver>(driver: T, options?: RoutingControllersOptions): any;
-
 /**
  * Registers all loaded actions in your express application.
  */
-export declare function createExecutor<T extends BaseDriver>(driver: T, options?: RoutingControllersOptions): void;
-
+export declare function createExecutor<T extends BaseDriver>(driver: T, options?: RoutingControllersOptions): Promise<void>;
 /**
  * Registers custom parameter decorator used in the controller actions.
  */

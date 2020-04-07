@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Injects currently authorized user.
  * Authorization logic must be defined in routing-controllers settings.
@@ -18,6 +17,5 @@ function CurrentUser(options) {
         });
     };
 }
-
 exports.CurrentUser = CurrentUser;
 //# sourceMappingURL=CurrentUser.js.map

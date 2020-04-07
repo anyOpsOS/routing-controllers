@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Marks given class as a middleware.
  * Allows to create global middlewares and control order of middleware execution.
@@ -16,6 +15,5 @@ function Middleware(options) {
         });
     };
 }
-
 exports.Middleware = Middleware;
 //# sourceMappingURL=Middleware.js.map

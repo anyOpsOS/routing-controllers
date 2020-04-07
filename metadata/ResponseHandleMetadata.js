@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Response handler metadata.
  */
@@ -14,7 +14,6 @@ var ResponseHandlerMetadata = /** @class */ (function () {
         this.value = args.value;
         this.secondaryValue = args.secondaryValue;
     }
-
     return ResponseHandlerMetadata;
 }());
 exports.ResponseHandlerMetadata = ResponseHandlerMetadata;

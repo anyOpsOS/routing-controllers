@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Options to be set to class-transformer for the result of the response.
  */
@@ -15,6 +14,5 @@ function ResponseClassTransformOptions(options) {
         });
     };
 }
-
 exports.ResponseClassTransformOptions = ResponseClassTransformOptions;
 //# sourceMappingURL=ResponseClassTransformOptions.js.map

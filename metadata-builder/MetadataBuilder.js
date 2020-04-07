@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var ActionMetadata_1 = require("../metadata/ActionMetadata");
 var ControllerMetadata_1 = require("../metadata/ControllerMetadata");
 var InterceptorMetadata_1 = require("../metadata/InterceptorMetadata");
@@ -15,7 +15,6 @@ var MetadataBuilder = /** @class */ (function () {
     function MetadataBuilder(options) {
         this.options = options;
     }
-
     // -------------------------------------------------------------------------
     // Public Methods
     // -------------------------------------------------------------------------
@@ -45,22 +44,18 @@ var MetadataBuilder = /** @class */ (function () {
      */
     MetadataBuilder.prototype.createMiddlewares = function (classes) {
         var middlewares = !classes ? index_1.getMetadataArgsStorage().middlewares : index_1.getMetadataArgsStorage().filterMiddlewareMetadatasForClasses(classes);
-        return middlewares.map(function (middlewareArgs) {
-            return new MiddlewareMetadata_1.MiddlewareMetadata(middlewareArgs);
-        });
+        return middlewares.map(function (middlewareArgs) { return new MiddlewareMetadata_1.MiddlewareMetadata(middlewareArgs); });
     };
     /**
      * Creates interceptor metadatas.
      */
     MetadataBuilder.prototype.createInterceptors = function (classes) {
         var interceptors = !classes ? index_1.getMetadataArgsStorage().interceptors : index_1.getMetadataArgsStorage().filterInterceptorMetadatasForClasses(classes);
-        return interceptors.map(function (interceptorArgs) {
-            return new InterceptorMetadata_1.InterceptorMetadata({
-                target: interceptorArgs.target,
-                method: undefined,
-                interceptor: interceptorArgs.target
-            });
-        });
+        return interceptors.map(function (interceptorArgs) { return new InterceptorMetadata_1.InterceptorMetadata({
+            target: interceptorArgs.target,
+            method: undefined,
+            interceptor: interceptorArgs.target
+        }); });
     };
     /**
      * Creates controller metadatas.
@@ -85,13 +80,13 @@ var MetadataBuilder = /** @class */ (function () {
         return index_1.getMetadataArgsStorage()
             .filterActionsWithTarget(controller.target)
             .map(function (actionArgs) {
-                var action = new ActionMetadata_1.ActionMetadata(controller, actionArgs, _this.options);
-                action.params = _this.createParams(action);
-                action.uses = _this.createActionUses(action);
-                action.interceptors = _this.createActionInterceptorUses(action);
-                action.build(_this.createActionResponseHandlers(action));
-                return action;
-            });
+            var action = new ActionMetadata_1.ActionMetadata(controller, actionArgs, _this.options);
+            action.params = _this.createParams(action);
+            action.uses = _this.createActionUses(action);
+            action.interceptors = _this.createActionInterceptorUses(action);
+            action.build(_this.createActionResponseHandlers(action));
+            return action;
+        });
     };
     /**
      * Creates param metadatas.
@@ -100,9 +95,7 @@ var MetadataBuilder = /** @class */ (function () {
         var _this = this;
         return index_1.getMetadataArgsStorage()
             .filterParamsWithTargetAndMethod(action.target, action.method)
-            .map(function (paramArgs) {
-                return new ParamMetadata_1.ParamMetadata(action, _this.decorateDefaultParamOptions(paramArgs));
-            });
+            .map(function (paramArgs) { return new ParamMetadata_1.ParamMetadata(action, _this.decorateDefaultParamOptions(paramArgs)); });
     };
     /**
      * Decorate paramArgs with default settings
@@ -121,9 +114,7 @@ var MetadataBuilder = /** @class */ (function () {
     MetadataBuilder.prototype.createActionResponseHandlers = function (action) {
         return index_1.getMetadataArgsStorage()
             .filterResponseHandlersWithTargetAndMethod(action.target, action.method)
-            .map(function (handlerArgs) {
-                return new ResponseHandleMetadata_1.ResponseHandlerMetadata(handlerArgs);
-            });
+            .map(function (handlerArgs) { return new ResponseHandleMetadata_1.ResponseHandlerMetadata(handlerArgs); });
     };
     /**
      * Creates response handler metadatas for controller.
@@ -131,9 +122,7 @@ var MetadataBuilder = /** @class */ (function () {
     MetadataBuilder.prototype.createControllerResponseHandlers = function (controller) {
         return index_1.getMetadataArgsStorage()
             .filterResponseHandlersWithTarget(controller.target)
-            .map(function (handlerArgs) {
-                return new ResponseHandleMetadata_1.ResponseHandlerMetadata(handlerArgs);
-            });
+            .map(function (handlerArgs) { return new ResponseHandleMetadata_1.ResponseHandlerMetadata(handlerArgs); });
     };
     /**
      * Creates use metadatas for actions.
@@ -141,9 +130,7 @@ var MetadataBuilder = /** @class */ (function () {
     MetadataBuilder.prototype.createActionUses = function (action) {
         return index_1.getMetadataArgsStorage()
             .filterUsesWithTargetAndMethod(action.target, action.method)
-            .map(function (useArgs) {
-                return new UseMetadata_1.UseMetadata(useArgs);
-            });
+            .map(function (useArgs) { return new UseMetadata_1.UseMetadata(useArgs); });
     };
     /**
      * Creates use interceptors for actions.
@@ -151,9 +138,7 @@ var MetadataBuilder = /** @class */ (function () {
     MetadataBuilder.prototype.createActionInterceptorUses = function (action) {
         return index_1.getMetadataArgsStorage()
             .filterInterceptorUsesWithTargetAndMethod(action.target, action.method)
-            .map(function (useArgs) {
-                return new InterceptorMetadata_1.InterceptorMetadata(useArgs);
-            });
+            .map(function (useArgs) { return new InterceptorMetadata_1.InterceptorMetadata(useArgs); });
     };
     /**
      * Creates use metadatas for controllers.
@@ -161,9 +146,7 @@ var MetadataBuilder = /** @class */ (function () {
     MetadataBuilder.prototype.createControllerUses = function (controller) {
         return index_1.getMetadataArgsStorage()
             .filterUsesWithTargetAndMethod(controller.target, undefined)
-            .map(function (useArgs) {
-                return new UseMetadata_1.UseMetadata(useArgs);
-            });
+            .map(function (useArgs) { return new UseMetadata_1.UseMetadata(useArgs); });
     };
     /**
      * Creates use interceptors for controllers.
@@ -171,9 +154,7 @@ var MetadataBuilder = /** @class */ (function () {
     MetadataBuilder.prototype.createControllerInterceptorUses = function (controller) {
         return index_1.getMetadataArgsStorage()
             .filterInterceptorUsesWithTargetAndMethod(controller.target, undefined)
-            .map(function (useArgs) {
-                return new InterceptorMetadata_1.InterceptorMetadata(useArgs);
-            });
+            .map(function (useArgs) { return new InterceptorMetadata_1.InterceptorMetadata(useArgs); });
     };
     return MetadataBuilder;
 }());

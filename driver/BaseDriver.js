@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var class_transformer_1 = require("class-transformer");
 var HttpError_1 = require("../http-error/HttpError");
 /**
@@ -16,7 +16,6 @@ var BaseDriver = /** @class */ (function () {
          */
         this.routePrefix = "";
     }
-
     // -------------------------------------------------------------------------
     // Protected Methods
     // -------------------------------------------------------------------------
@@ -26,7 +25,7 @@ var BaseDriver = /** @class */ (function () {
             && result instanceof Object // don't transform primitive types (string/number/boolean)
             && !(result instanceof Uint8Array // don't transform binary data
                 ||
-                result.pipe instanceof Function // don't transform streams
+                    result.pipe instanceof Function // don't transform streams
             );
         // transform result if needed
         if (shouldTransform) {
@@ -50,20 +49,12 @@ var BaseDriver = /** @class */ (function () {
             if (error.stack && this.developmentMode)
                 processedError.stack = error.stack;
             Object.keys(error)
-                .filter(function (key) {
-                    return key !== "stack" && key !== "name" && key !== "message" && (!(error instanceof HttpError_1.HttpError) || key !== "httpCode");
-                })
-                .forEach(function (key) {
-                    return processedError[key] = error[key];
-                });
+                .filter(function (key) { return key !== "stack" && key !== "name" && key !== "message" && (!(error instanceof HttpError_1.HttpError) || key !== "httpCode"); })
+                .forEach(function (key) { return processedError[key] = error[key]; });
             if (this.errorOverridingMap)
                 Object.keys(this.errorOverridingMap)
-                    .filter(function (key) {
-                        return name_1 === key;
-                    })
-                    .forEach(function (key) {
-                        return processedError = _this.merge(processedError, _this.errorOverridingMap[key]);
-                    });
+                    .filter(function (key) { return name_1 === key; })
+                    .forEach(function (key) { return processedError = _this.merge(processedError, _this.errorOverridingMap[key]); });
             return Object.keys(processedError).length > 0 ? processedError : undefined;
         }
         return error;
@@ -74,7 +65,8 @@ var BaseDriver = /** @class */ (function () {
         if (error instanceof Error) {
             if (this.developmentMode && error.stack) {
                 return error.stack;
-            } else if (error.message) {
+            }
+            else if (error.message) {
                 return error.message;
             }
         }
@@ -85,7 +77,8 @@ var BaseDriver = /** @class */ (function () {
         for (var i in obj1) {
             if ((i in obj2) && (typeof obj1[i] === "object") && (i !== null)) {
                 result[i] = this.merge(obj1[i], obj2[i]);
-            } else {
+            }
+            else {
                 result[i] = obj1[i];
             }
         }

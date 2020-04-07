@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * "Use middleware" metadata.
  */
@@ -13,7 +13,6 @@ var UseMetadata = /** @class */ (function () {
         this.middleware = args.middleware;
         this.afterAction = args.afterAction;
     }
-
     return UseMetadata;
 }());
 exports.UseMetadata = UseMetadata;

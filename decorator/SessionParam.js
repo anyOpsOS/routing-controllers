@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Injects a Session object property to the controller action parameter.
  * Must be applied on a controller action parameter.
@@ -21,6 +20,5 @@ function SessionParam(propertyName, options) {
         });
     };
 }
-
 exports.SessionParam = SessionParam;
 //# sourceMappingURL=SessionParam.js.map

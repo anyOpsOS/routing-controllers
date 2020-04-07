@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Action Parameter metadata.
  */
@@ -30,7 +30,8 @@ var ParamMetadata = /** @class */ (function () {
         this.validate = args.validate;
         if (args.explicitType) {
             this.targetType = args.explicitType;
-        } else {
+        }
+        else {
             var ParamTypes = Reflect.getMetadata("design:paramtypes", args.object, args.method);
             if (typeof ParamTypes !== "undefined") {
                 this.targetType = ParamTypes[args.index];
@@ -39,13 +40,13 @@ var ParamMetadata = /** @class */ (function () {
         if (this.targetType) {
             if (this.targetType instanceof Function && this.targetType.name) {
                 this.targetName = this.targetType.name.toLowerCase();
-            } else if (typeof this.targetType === "string") {
+            }
+            else if (typeof this.targetType === "string") {
                 this.targetName = this.targetType.toLowerCase();
             }
             this.isTargetObject = this.targetType instanceof Function || this.targetType.toLowerCase() === "object";
         }
     }
-
     return ParamMetadata;
 }());
 exports.ParamMetadata = ParamMetadata;

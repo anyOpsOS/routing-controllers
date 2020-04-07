@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Allows to inject a request body value to the controller action parameter.
  * Must be applied on a controller action parameter.
@@ -22,6 +21,5 @@ function Body(options) {
         });
     };
 }
-
 exports.Body = Body;
 //# sourceMappingURL=Body.js.map

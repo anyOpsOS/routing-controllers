@@ -1,14 +1,13 @@
-import {Action} from "../Action";
-import {ActionMetadataArgs} from "./args/ActionMetadataArgs";
-import {ActionType} from "./types/ActionType";
-import {ClassTransformOptions} from "class-transformer";
-import {ControllerMetadata} from "./ControllerMetadata";
-import {InterceptorMetadata} from "./InterceptorMetadata";
-import {ParamMetadata} from "./ParamMetadata";
-import {ResponseHandlerMetadata} from "./ResponseHandleMetadata";
-import {RoutingControllersOptions} from "../RoutingControllersOptions";
-import {UseMetadata} from "./UseMetadata";
-
+import { Action } from "../Action";
+import { ActionMetadataArgs } from "./args/ActionMetadataArgs";
+import { ActionType } from "./types/ActionType";
+import { ClassTransformOptions } from "class-transformer";
+import { ControllerMetadata } from "./ControllerMetadata";
+import { InterceptorMetadata } from "./InterceptorMetadata";
+import { ParamMetadata } from "./ParamMetadata";
+import { ResponseHandlerMetadata } from "./ResponseHandleMetadata";
+import { RoutingControllersOptions } from "../RoutingControllersOptions";
+import { UseMetadata } from "./UseMetadata";
 /**
  * Action metadata.
  */
@@ -117,15 +116,12 @@ export declare class ActionMetadata {
      * Special function that will be called instead of orignal method of the target.
      */
     methodOverride?: (actionMetadata: ActionMetadata, action: Action, params: any[]) => Promise<any> | any;
-
     constructor(controllerMetadata: ControllerMetadata, args: ActionMetadataArgs, options: RoutingControllersOptions);
-
     /**
      * Builds everything action metadata needs.
      * Action metadata can be used only after its build.
      */
     build(responseHandlers: ResponseHandlerMetadata[]): void;
-
     /**
      * Builds full action route.
      */
@@ -134,13 +130,11 @@ export declare class ActionMetadata {
      * Builds action response headers.
      */
     private buildHeaders;
-
     /**
      * Calls action method.
      * Action method is an action defined in a user controller.
      */
     callMethod(params: any[]): any;
-
     /**
      * Appends base route to a given regexp route.
      */

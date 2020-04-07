@@ -6,7 +6,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var ActionParameterHandler_1 = require("./ActionParameterHandler");
 var MetadataBuilder_1 = require("./metadata-builder/MetadataBuilder");
 var container_1 = require("./container");
@@ -29,7 +29,6 @@ var RoutingControllers = /** @class */ (function () {
         this.parameterHandler = new ActionParameterHandler_1.ActionParameterHandler(driver);
         this.metadataBuilder = new MetadataBuilder_1.MetadataBuilder(options);
     }
-
     // -------------------------------------------------------------------------
     // Public Methods
     // -------------------------------------------------------------------------
@@ -47,9 +46,7 @@ var RoutingControllers = /** @class */ (function () {
         var _a;
         var interceptors = this.metadataBuilder
             .buildInterceptorMetadata(classes)
-            .sort(function (middleware1, middleware2) {
-                return middleware1.priority - middleware2.priority;
-            })
+            .sort(function (middleware1, middleware2) { return middleware1.priority - middleware2.priority; })
             .reverse();
         (_a = this.interceptors).push.apply(_a, interceptors);
         return this;
@@ -78,15 +75,9 @@ var RoutingControllers = /** @class */ (function () {
         var _this = this;
         this.metadataBuilder
             .buildMiddlewareMetadata(classes)
-            .filter(function (middleware) {
-                return middleware.global && middleware.type === type;
-            })
-            .sort(function (middleware1, middleware2) {
-                return middleware2.priority - middleware1.priority;
-            })
-            .forEach(function (middleware) {
-                return _this.driver.registerMiddleware(middleware);
-            });
+            .filter(function (middleware) { return middleware.global && middleware.type === type; })
+            .sort(function (middleware1, middleware2) { return middleware2.priority - middleware1.priority; })
+            .forEach(function (middleware) { return _this.driver.registerMiddleware(middleware); });
         return this;
     };
     // -------------------------------------------------------------------------
@@ -99,12 +90,8 @@ var RoutingControllers = /** @class */ (function () {
         var _this = this;
         // compute all parameters
         var paramsPromises = actionMetadata.params
-            .sort(function (param1, param2) {
-                return param1.index - param2.index;
-            })
-            .map(function (param) {
-                return _this.parameterHandler.handle(action, param);
-            });
+            .sort(function (param1, param2) { return param1.index - param2.index; })
+            .map(function (param) { return _this.parameterHandler.handle(action, param); });
         // after all parameters are computed
         return Promise.all(paramsPromises).then(function (params) {
             // execute action and handle result
@@ -124,12 +111,13 @@ var RoutingControllers = /** @class */ (function () {
         if (isPromiseLike_1.isPromiseLike(result)) {
             return result
                 .then(function (data) {
-                    return _this.handleCallMethodResult(data, action, options, interceptorFns);
-                })
+                return _this.handleCallMethodResult(data, action, options, interceptorFns);
+            })
                 .catch(function (error) {
-                    return _this.driver.handleError(error, action, options);
-                });
-        } else {
+                return _this.driver.handleError(error, action, options);
+            });
+        }
+        else {
             if (interceptorFns) {
                 var awaitPromise = runInSequence_1.runInSequence(interceptorFns, function (interceptorFn) {
                     var interceptedResult = interceptorFn(options, result);
@@ -137,19 +125,17 @@ var RoutingControllers = /** @class */ (function () {
                         return interceptedResult.then(function (resultFromPromise) {
                             result = resultFromPromise;
                         });
-                    } else {
+                    }
+                    else {
                         result = interceptedResult;
                         return Promise.resolve();
                     }
                 });
                 return awaitPromise
-                    .then(function () {
-                        return _this.driver.handleSuccess(result, action, options);
-                    })
-                    .catch(function (error) {
-                        return _this.driver.handleError(error, action, options);
-                    });
-            } else {
+                    .then(function () { return _this.driver.handleSuccess(result, action, options); })
+                    .catch(function (error) { return _this.driver.handleError(error, action, options); });
+            }
+            else {
                 return this.driver.handleSuccess(result, action, options);
             }
         }

@@ -1,6 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
-
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Runs given callback that returns promise for each item in the given collection in order.
  * Operations executed after each other, right after previous promise being resolved.
@@ -17,6 +16,5 @@ function runInSequence(collection, callback) {
         return results;
     });
 }
-
 exports.runInSequence = runInSequence;
 //# sourceMappingURL=runInSequence.js.map

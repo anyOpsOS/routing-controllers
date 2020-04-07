@@ -1,5 +1,4 @@
-import {BodyOptions} from "../decorator-options/BodyOptions";
-
+import { BodyOptions } from "../decorator-options/BodyOptions";
 /**
  * Allows to inject a request body value to the controller action parameter.
  * Must be applied on a controller action parameter.

@@ -1,5 +1,4 @@
-import {Action} from "./Action";
-
+import { Action } from "./Action";
 /**
  * Used to register custom parameter handler in the controller action parameters.
  */

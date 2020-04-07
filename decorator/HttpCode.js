@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Sets response HTTP status code.
  * Http code will be set only when controller action is successful.
@@ -18,6 +17,5 @@ function HttpCode(code) {
         });
     };
 }
-
 exports.HttpCode = HttpCode;
 //# sourceMappingURL=HttpCode.js.map

@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Takes partial data of the request body.
  * Must be applied on a controller action parameter.
@@ -22,6 +21,5 @@ function BodyParam(name, options) {
         });
     };
 }
-
 exports.BodyParam = BodyParam;
 //# sourceMappingURL=BodyParam.js.map

@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Injects all uploaded files to the controller action parameter.
  * Must be applied on a controller action parameter.
@@ -20,6 +19,5 @@ function UploadedFiles(name, options) {
         });
     };
 }
-
 exports.UploadedFiles = UploadedFiles;
 //# sourceMappingURL=UploadedFiles.js.map

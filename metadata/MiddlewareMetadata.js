@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var container_1 = require("../container");
 /**
  * Middleware metadata.
@@ -14,7 +14,6 @@ var MiddlewareMetadata = /** @class */ (function () {
         this.priority = args.priority;
         this.type = args.type;
     }
-
     Object.defineProperty(MiddlewareMetadata.prototype, "instance", {
         // -------------------------------------------------------------------------
         // Accessors

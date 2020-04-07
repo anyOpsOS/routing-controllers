@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Specifies a given interceptor middleware or interceptor function to be used for controller or controller action.
  * Must be set to controller action or controller class.
@@ -21,6 +20,5 @@ function UseInterceptor() {
         });
     };
 }
-
 exports.UseInterceptor = UseInterceptor;
 //# sourceMappingURL=UseInterceptor.js.map

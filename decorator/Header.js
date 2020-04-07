@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-
 /**
  * Sets response header.
  * Must be applied on a controller action.
@@ -17,6 +16,5 @@ function Header(name, value) {
         });
     };
 }
-
 exports.Header = Header;
 //# sourceMappingURL=Header.js.map

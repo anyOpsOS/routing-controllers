@@ -1,7 +1,6 @@
-import {ActionType} from "../types/ActionType";
-import {Action} from "../../Action";
-import {ActionMetadata} from "../ActionMetadata";
-
+import { ActionType } from "../types/ActionType";
+import { Action } from "../../Action";
+import { ActionMetadata } from "../ActionMetadata";
 /**
  * Action metadata used to storage information about registered action.
  */
