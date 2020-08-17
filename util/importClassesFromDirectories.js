@@ -71,7 +71,7 @@ function importClassesFromDirectories(directories, formats) {
                         })
                             .map(function (file) {
                             // return require(file);
-                            return Promise.resolve().then(function () { return require(file); });
+                            return Promise.resolve().then(function () { return import(file); });
                         }))];
                 case 1:
                     dirs = _a.sent();
